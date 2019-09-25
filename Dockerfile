@@ -1,5 +1,6 @@
 # base image
 FROM arm32v7/node:11.12.0
+#FROM amd64/node:11.12.0
 
 # arm virtualization for dockerhub
 COPY qemu-arm-static /usr/bin
@@ -19,6 +20,7 @@ RUN npm install serve
 
 COPY . .
 
+RUN npm install env-cmd
 RUN npm run build
 EXPOSE 3000 
 
