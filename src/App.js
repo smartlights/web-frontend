@@ -43,31 +43,31 @@ class App extends Component {
 
   toggleOn = (brightness, event) => {
     this.setState({ on: !this.state.on }, () => {
-      axios.post(apiBase + "light", { ...this.state });
+      axios.post(apiBase + "post-lights", { ...this.state });
     });
   };
 
   handleHueChange = (color, event) => {
     this.setState({ mode: "colour", hex: color.hex }, () => {
-      axios.post(apiBase + "light", { ...this.state });
+      axios.post(apiBase + "post-lights", { ...this.state });
     });
   };
 
   handleSaturationChange = value => {
     this.setState({ mode: "colour", saturation: value / 100 }, () => {
-      axios.post(apiBase + "light", { ...this.state });
+      axios.post(apiBase + "post-lights", { ...this.state });
     });
   };
 
   handleBrightnessChange = value => {
     this.setState({ brightness: value / 100 }, () => {
-      axios.post(apiBase + "light", { ...this.state });
+      axios.post(apiBase + "post-lights", { ...this.state });
     });
   };
 
   handleTempChange = value => {
     this.setState({ hex: "#ffffff", mode: "white", temp: value / 100 }, () => {
-      axios.post(apiBase + "light", { ...this.state });
+      axios.post(apiBase + "post-lights", { ...this.state });
     });
   };
 
